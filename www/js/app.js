@@ -7,6 +7,7 @@ var app=angular.module('starter', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+    
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -21,6 +22,16 @@ var app=angular.module('starter', ['ionic'])
 
 
 app.controller('MainController', function($scope, $ionicSideMenuDelegate, $ionicPopup){
+
+var nextItem = 4;
+$scope.coordenadaslist = {1:"1234"};
+$scope.coord="";
+
+$scope.addItem = function() {
+    $scope.coordenadaslist.unshift(nextItem++);
+  }
+
+
 
    $scope.toggleLeft=function(){
     $ionicSideMenuDelegate.toggleLeft()
@@ -54,12 +65,12 @@ app.controller('MainController', function($scope, $ionicSideMenuDelegate, $ionic
      var autocomplete= new google.maps.places.Autocomplete(input,map);
 
 
-      
+      // função para a busca
       $scope.geocode=function geocode () {
         $scope.checked=false;
 
 
-
+//Tirar os checkboxes das ultimas coordenadas
 function checkAll(frm, checkedOn) {
 
   // have we been passed an ID
@@ -78,13 +89,11 @@ function checkAll(frm, checkedOn) {
   }
 }
 
+        // executa a função para tirar os checkboxes
       checkAll(check_boxes,false)
 
 
-
-
-
-
+        //função para colocar os marcadores e fazer a busca
         geocoder.geocode({
            'address': document.getElementById('search').value
         },
@@ -107,23 +116,26 @@ function checkAll(frm, checkedOn) {
 });
 
                    google.maps.event.addListener(autocomplete, "place_changed", function() {
-                  geocode()
+                  geocode() // executa a busca
 });
            }
 
-        $scope.showConfirm = function() {
-     var confirmPopup = $ionicPopup.confirm({
-       title: 'Consume Ice Cream',
-       template: 'Are you sure you want to eat this ice cream?'
-     });
-     confirmPopup.then(function(res) {
-       if(res) {
-         console.log('You are sure');
-       } else {
-         console.log('You are not sure');
-       }
-     });
-   };
+
+            //pergunta se quer colocar nas ultimas coordenadas
+           if (confirm('Você quer salvar a busca como últimas coordenadas?')) {
+    alert("Salvou!");
+
+    //addItem(); adicionar na lista de coordenadas
+
+  
+ 
+
+
+} else {
+    // Do nothing!
+}
+
+     
 
  
         });
@@ -185,22 +197,52 @@ function checkAll(frm, checkedOn) {
     };
 
 
+
+    
+//       $scope.enviar={
+
+//       smsSend :function(){
+//         alert("tá aqui");
+//         var number=012981625268;
+//         var message = "receber";
+        
+//         var options = {
+//             replaceLineBreaks: false, // true to replace \n by a new line, false by default
+//             android: {
+//                 //intent: 'INTENT'  // send SMS with the native android SMS messaging
+//                 intent: '' // send SMS without open any other app
+//             }
+//       };
+
+
+//       var success = function () { alert('Aguarde alguns minutos para receber as coordenadas'); };
+//         var error = function (e) { alert('Ops, a mensagem falhou:' + e); };
+//         sms.send(number, message, options, success, error);
+
+
+
+//     }
+
+// };
+
+
+// var messageInfo = {
+//     phoneNumber: "xxxxxxxxxx",
+//     textMessage: "This is a test message"
+// };
+
+// $scope.enviar=function (){
+//   sms.sendMessage(messageInfo, function(message) {
+//     console.log("success: " + message);
+// }, function(error) {
+//     console.log("code: " + error.code + ", message: " + error.message);
+// });
   
-         
-         
+//    };   
+
+
+
+
          
     
 })
-
-
-
-
-
-
-// function MainCtrl($scope, $ionicSideMenuDelegate){
-
-//   $scope.toggleLeft()=function(){
-//     ionicSideMenuDelegate.toggleLeft();
-//   }
-
-// }
