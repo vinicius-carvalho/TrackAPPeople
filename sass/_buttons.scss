@@ -1,0 +1,13 @@
+.btn {
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+    @include border-radius(3px);
+    padding: $size-3;
+
+    &.action {
+        background-color: $green;
+    }
+
+
+}
