@@ -2,6 +2,8 @@
 
 # Paths configuration
 css_dir = "www/css"
+fonts_dir = "www/fonts"
+images_dir = "www/img"
 sass_dir = "sass"
 
 # Output style of the compiled CSS

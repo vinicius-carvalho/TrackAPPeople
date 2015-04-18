@@ -1,0 +1,32 @@
+.person {
+    font-family: "proxima nova";
+    padding: $size-3;
+    text-align: center;
+}
+
+.person-picture {
+    width: 44%;
+}
+
+.person-name {
+    color: $gray;
+    font-size: $size-4;
+    margin: $size-4 0 $size-2;
+}
+
+.person-phone {
+    font-size: $size-3;
+    color: $green;
+    margin-bottom: $size-5;
+}
+
+.person-localization-title {
+    color: $gray;
+    font-size: $size-4;
+    margin-bottom: $size-2;
+}
+
+.person-current-localization {
+    color: $gray;
+    font-size: $size-3;
+}

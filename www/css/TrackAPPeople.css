@@ -62,3 +62,68 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 1, ../../sass/_wellcome.scss */
+.wellcome {
+  background-image: url('../img/background/wellcome-bg.png?1429389690');
+  background-position: center;
+  -moz-box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
+  -webkit-box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
+  padding: 24px;
+  text-align: center;
+}
+
+/* line 1, ../../sass/_buttons.scss */
+.btn {
+  color: #FFFFFF;
+  text-decoration: none;
+  display: inline-block;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 24px;
+}
+/* line 8, ../../sass/_buttons.scss */
+.btn.action {
+  background-color: #78C0A8;
+}
+
+/* line 1, ../../sass/_person.scss */
+.person {
+  font-family: "proxima nova";
+  padding: 24px;
+  text-align: center;
+}
+
+/* line 7, ../../sass/_person.scss */
+.person-picture {
+  width: 44%;
+}
+
+/* line 11, ../../sass/_person.scss */
+.person-name {
+  color: #666666;
+  font-size: 32px;
+  margin: 32px 0 16px;
+}
+
+/* line 17, ../../sass/_person.scss */
+.person-phone {
+  font-size: 24px;
+  color: #78C0A8;
+  margin-bottom: 40px;
+}
+
+/* line 23, ../../sass/_person.scss */
+.person-localization-title {
+  color: #666666;
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+/* line 29, ../../sass/_person.scss */
+.person-current-localization {
+  color: #666666;
+  font-size: 24px;
+}

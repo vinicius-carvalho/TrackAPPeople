@@ -1,0 +1,23 @@
+.wellcome {
+    background-image: image-url("background/wellcome-bg.png");
+    background-position: center;
+    @include box-shadow(0 -5px 15px rgba(#000,.69));
+    padding: 24px;
+    text-align: center;
+}
+
+.wellcome-info {
+
+}
+
+.wellcome-logo {
+
+}
+
+.wellcome-description {
+
+}
+
+.wellcome-action-call {
+
+}
