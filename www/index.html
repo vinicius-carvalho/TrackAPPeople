@@ -14,7 +14,7 @@
   <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
 <link href="css/ionic.app.css" rel="stylesheet">
 -->
-  
+    
   <!-- ionic/angularjs js -->
   
   <script src="lib/ionic/js/ionic.bundle.js">
@@ -48,13 +48,15 @@
           </div>
           <h1 class="title">
             TrackAPPeople
-          </h1>
+          </h1> 
           </ion-header-bar>
 
           <ion-content>
+
             <div class="row responsive-sm" >
               <br>
               <br>
+
               <div class="search col">
                 
                 <input  ng-keypress="($event.which === 13)?geocode():0" class="controls" id="search"  type="search" placeholder="Digite as coordenadas" />
@@ -67,9 +69,11 @@
                 <button ng-click="mostrarEsconderMapa()" id="esconderMapa" class="button button-balanced button-full">
                   {{esconder}}
                 </button>
+
                 
               </div>
             </div>
+            
             
             <div class="row" data-tap-disable="true" >
               <div id="map_canvas" data-tap-disable="true" class="tam col">
@@ -83,6 +87,9 @@
                 <h2>
                   Últimas Coordenadas 
                 </h2>
+
+               {{endereco}}
+
                 <ul class="list">
                   <li class="item item-checkbox" ng-click="MostrarMarcador()" ng-repeat="(id, coord) in coordenadaslist" >
                     <label class="checkbox">
