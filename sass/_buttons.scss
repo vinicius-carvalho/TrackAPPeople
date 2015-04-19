@@ -1,5 +1,6 @@
 .btn {
     color: $white;
+    font-size: $size-3;
     text-decoration: none;
     display: inline-block;
     @include border-radius(3px);
@@ -8,6 +9,4 @@
     &.action {
         background-color: $green;
     }
-
-
 }
