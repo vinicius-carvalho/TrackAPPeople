@@ -33,7 +33,7 @@ $scope.addItem = function() {
   }
 
 
- // Esconder o mapa
+
    $scope.toggleLeft=function(){
     $ionicSideMenuDelegate.toggleLeft()
   }
@@ -52,7 +52,7 @@ $scope.addItem = function() {
         center: new google.maps.LatLng(-23.6824124,-46.5952992),
         zoom: 15
      });
-    $scope.endereco="";
+    $scope.addressSearch="";
      var geocoder = new google.maps.Geocoder();
      var marker=new google.maps.Marker();
      var input = document.getElementById('search');
@@ -69,8 +69,8 @@ $scope.addItem = function() {
 
      var searchBox = new google.maps.places.SearchBox(input, map);
 
-     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-     map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn);
+     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+     //map.controls[google.maps.ControlPosition.TOP_LEFT].push(btn);
     
 
      var autocomplete= new google.maps.places.Autocomplete(input,map);
@@ -81,27 +81,27 @@ $scope.addItem = function() {
       $scope.checked=false;
 
 
-//Tirar os checkboxes das ultimas coordenadas
-function checkAll(frm, checkedOn) {
+// //Tirar os checkboxes das ultimas coordenadas
+// function checkAll(frm, checkedOn) {
 
-  // have we been passed an ID
-  if (typeof frm == "check_boxes") {
-    frm = document.getElementById(frm);
-  }
+//   // have we been passed an ID
+//   if (typeof frm == "check_boxes") {
+//     frm = document.getElementById(frm);
+//   }
    
-  // Get all of the inputs that are in this form
-  var inputs = frm.getElementsByTagName("input");
+//   // Get all of the inputs that are in this form
+//   var inputs = frm.getElementsByTagName("input");
 
-  // for each input in the form, check if it is a checkbox
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i].type == "checkbox") {
-      inputs[i].checked = checkedOn;
-    }
-  }
-}
+//   // for each input in the form, check if it is a checkbox
+//   for (var i = 0; i < inputs.length; i++) {
+//     if (inputs[i].type == "checkbox") {
+//       inputs[i].checked = checkedOn;
+//     }
+//   }
+// }
 
-        // executa a função para tirar os checkboxes
-      checkAll(check_boxes,false)
+//         // executa a função para tirar os checkboxes
+//       checkAll(check_boxes,false)
 
     
 var input = document.getElementById('search').value;
@@ -125,10 +125,12 @@ var input = document.getElementById('search').value;
 
         
 
-            $scope.endereco=results[0].formatted_address;
+            $scope.addressSearch=results[0].formatted_address;
+             $scope.addressSearch=results[0].formatted_address.split(',');
+
             $scope.$digest();
 
-            console.log(results[0].formatted_address);
+            console.log($scope.addressSearch[0]);
            
 
 
@@ -223,8 +225,9 @@ var input = document.getElementById('search').value;
 
     $scope.mostrarMsgButton=false;
     $scope.esconder="Esconder Mapa"
+    //$("#map_canvas").hide();
     
-    $scope.mostrarEsconderMapa =function(){
+    $scope.hideMap =function(){
         
         $scope.mostrarMsgButton =! $scope.mostrarMsgButton;
       

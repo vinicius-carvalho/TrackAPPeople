@@ -29,7 +29,7 @@
         </script>
     </head>
 
-    <body>
+    <body ng-app="starter" ng-controller="MainController">
         <header class="taskbar">
             <img src="../img/logo/white-header-logo.png">
         </header>
@@ -44,19 +44,30 @@
             <address class="person-current-localization">
                 Rua: Inconfidentes, 245,<br>
                 Jd. São Dimas - São José dos Campos -<br>
-                São Paulo - Brasil
-            </address>
-            <p class="person-click-to-update">Para atualizar, <a href="" class="link">clique aqui!</a></p>
+                São Paulo - Brasil<br>
+                <hr> 
 
-            <button class="btn action">Visualizar a localização de Vinicius no mapa</button>
+                {{addressSearch[0]}}<br>
+                {{addressSearch[1]}}
+            </address>
+            <p class="person-click-to-update">Para atualizar e receber as coordenadas, <a href="" class="link">clique aqui!</a></p>
+
+            <button ng-click="hideMap()" id="hideMap" class="btn action">Visualizar a localização de Vinicius no mapa</button>
 
             <hr>
 
-            <div id="map_canvas"></div>
+            <div class="row responsive-sm">
+            <div class="row" data-tap-disable="true" >
+              <div id="map_canvas" data-tap-disable="true" class="tam col"> <!-- Tem que deixar o tamanho inicial de 0 dando impressao de que está escondido, pois se usar o hide() ele fica zuado! --> 
+              </div>
+            </div>
+        </div>
 
             <update-coordinates>
                 <p>Digite a baixo os valores que você recebeu por sms:</p>
-                <input type="text" placeholder="digite as coordenadas aqui">
+                <input ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="digite as coordenadas aqui"> <!-- a busca inicia quando vc aperta enter-->
+
+                <button ng-click="geocode()">buscar</button>
             </update-coordinates>
         </main>
     </body>
