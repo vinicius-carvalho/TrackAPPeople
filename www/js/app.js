@@ -244,52 +244,15 @@ var input = document.getElementById('search').value;
     };
 
 
+//--------------------------------------------------- inicio enviar sms
+
+
+
+
+
+
 
     
-//       $scope.enviar={
-
-//       smsSend :function(){
-//         alert("tá aqui");
-//         var number=012981625268;
-//         var message = "receber";
-        
-//         var options = {
-//             replaceLineBreaks: false, // true to replace \n by a new line, false by default
-//             android: {
-//                 //intent: 'INTENT'  // send SMS with the native android SMS messaging
-//                 intent: '' // send SMS without open any other app
-//             }
-//       };
-
-
-//       var success = function () { alert('Aguarde alguns minutos para receber as coordenadas'); };
-//         var error = function (e) { alert('Ops, a mensagem falhou:' + e); };
-//         sms.send(number, message, options, success, error);
-
-
-
-//     }
-
-// };
-
-
-// var messageInfo = {
-//     phoneNumber: "xxxxxxxxxx",
-//     textMessage: "This is a test message"
-// };
-
-// $scope.enviar=function (){
-//   sms.sendMessage(messageInfo, function(message) {
-//     console.log("success: " + message);
-// }, function(error) {
-//     console.log("code: " + error.code + ", message: " + error.message);
-// });
-  
-//    };   
-
-
-
-
          
     
 })

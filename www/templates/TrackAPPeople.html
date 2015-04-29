@@ -50,7 +50,7 @@
                 {{addressSearch[0]}}<br>
                 {{addressSearch[1]}}
             </address>
-            <p class="person-click-to-update">Para atualizar e receber as coordenadas, <a href="" class="link">clique aqui!</a></p>
+            <p class="person-click-to-update">Para atualizar e receber as coordenadas, <input type="button" id="sendSMS" class="btn action" value="clique aqui!"></input></p>
 
             <button ng-click="hideMap()" id="hideMap" class="btn action">Visualizar a localização de Vinicius no mapa</button>
 
@@ -70,5 +70,9 @@
                 <button ng-click="geocode()">buscar</button>
             </update-coordinates>
         </main>
+
+         
+         <script type="text/javascript" src="../js/sms.js"></script>
+
     </body>
 </html>

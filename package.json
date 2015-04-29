@@ -16,5 +16,8 @@
   },
   "cordovaPlugins": [
     "com.jsmobile.plugins.sms"
+  ],
+  "cordovaPlatforms": [
+    "android"
   ]
 }
