@@ -101,6 +101,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 8, ../../sass/_person.scss */
 .person-picture {
   width: 44%;
+  border-radius: 200px;
+  -webkit-border-radius: 250px;
+  -moz-border-radius: 250px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
 /* line 12, ../../sass/_person.scss */

@@ -3,37 +3,59 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+     
         <title>
         TrackAPPeople
         </title>
 
         <link href="../css/TrackAPPeople.css" rel="stylesheet">
-        <link href="../css/map css.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
+        <link href="../lib/ionic/css/ionic.css" rel="stylesheet">
+        
 
         <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
         -->
 
         <!-- ionic/angularjs js -->
-        <link href="../css/ionic.app.css" rel="stylesheet">
+        <!--<link href="../css/ionic.app.css" rel="stylesheet">-->
+   
+   <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAlubEQd2eMfKg6CIfL_ID0UaBcIudtr3Q&libraries=places&sensor=true">
+        </script>
+
+
 
         <script src="../lib/ionic/js/ionic.bundle.js">
-        </script>
-        <script src="../js/app.js">
-        </script>
-        <script src="../js/maps.js">
-        </script>
+        </script> 
+        
+<script src="../js/angular-google-maps.min.js">
+        </script> 
+       
+
+<script src="../js/ng-cordova.min.js" type="text/javascript">
+        </script> 
+
+
         <script src="../js/jquery.js" type="text/javascript">
+        </script> 
+
+        <script src="../js/places.js" type="text/javascript">
+        </script> 
+
+ <script src="../cordova.js"></script>
+
+    
+
+ <script src="../js/app.js">
         </script>
 
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyAlubEQd2eMfKg6CIfL_ID0UaBcIudtr3Q&libraries=places&sensor=true">
-        </script>
-    </head>
 
-    <body ng-app="starter" ng-controller="MainController">
+    <ion-pane ng-app="starter" ng-controller="main">
+       <ion-content>
+
         <header class="taskbar">
             <img src="../img/logo/white-header-logo.png">
         </header>
-
+      
         <main class="person">
             <img src="../img/perfil/perfil.jpg" class="person-picture">
 
@@ -42,37 +64,71 @@
 
             <h2 class="person-localization-title">Ultima localização:</h2>
             <address class="person-current-localization">
-                Rua: Inconfidentes, 245,<br>
-                Jd. São Dimas - São José dos Campos -<br>
-                São Paulo - Brasil<br>
-                <hr> 
 
-                {{addressSearch[0]}}<br>
-                {{addressSearch[1]}}
+              <span ng-controller="MapController">{{ultimascoord}}</span>
+            
             </address>
-            <p class="person-click-to-update">Para atualizar e receber as coordenadas, <input type="button" id="sendSMS" class="btn action" value="clique aqui!"></input></p>
+             
+            
 
+
+            <p class="person-click-to-update">Para atualizar e receber as coordenadas, aperte o botão abaixo</p> <p><img src="../img/button/button localizar.png" class="buttonloc " ng-click="sendSMSbtn('981275534','receber')"></p>
+
+       <!--  <button ng-click="insert('Cacapava')"  class="button">insert</button>
+         <button class="button" ng-click="select('Cacapava')">Select</button> -->
+          <button class="button" ng-click="deletebd()">Deletedb</button> 
+        <!--   <button ng-controller="MapController" class="button" ng-click="f()">action</button>
+          <button ng-controller="MapController" class="button" ng-click="f2()">action 2</button>
+             -->
+            
+            
+ </p>
+        </div>
             <button ng-click="hideMap()" id="hideMap" class="btn action">Visualizar a localização de Vinicius no mapa</button>
 
             <hr>
 
-            <div class="row responsive-sm">
+            <div class="row responsive-sm" ng-controller="MapController">
             <div class="row" data-tap-disable="true" >
-              <div id="map_canvas" data-tap-disable="true" class="tam col"> <!-- Tem que deixar o tamanho inicial de 0 dando impressao de que está escondido, pois se usar o hide() ele fica zuado! --> 
+              <div id="map" data-tap-disable="true"> <!-- Tem que deixar o tamanho inicial de 0 dando impressao de que está escondido, pois se usar o hide() ele fica zuado! --> 
               </div>
             </div>
         </div>
 
-            <update-coordinates>
-                <p>Digite a baixo os valores que você recebeu por sms:</p>
-                <input ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="digite as coordenadas aqui"> <!-- a busca inicia quando vc aperta enter-->
-
-                <button ng-click="geocode()">buscar</button>
+          <update-coordinates ng-controller="MapController">
+                <p><h4>Digite a baixo os valores que você recebeu por sms:</h4></p>
+               <!-- <label class="item-input">
+               <span class="input-label"><h4>Coordenadas:</h4></span>
+                  <input type="text" ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="Entre com as coordenadas" >
+                </label>
+                <button class="button" ng-click="geocode()">Encontrar</button>
+              
             </update-coordinates>
+ -->
+
+
+  <update-coordinates class=" item-input-inset" ng-controller="MapController">
+  
+     
+    <label class="item-input-wrapper">
+
+       <input type="text" ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="Coordenadas" >
+    </label>
+    <button class="button button-small" ng-click="geocode()">Encontrar</button> 
+     </update-coordinates>
+
+
+
+  
         </main>
 
-         
-         <script type="text/javascript" src="../js/sms.js"></script>
 
-    </body>
+
+
+ 
+     
+     
+    </ion-content>
+
+    </ion-pane>
 </html>

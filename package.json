@@ -15,7 +15,8 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "com.jsmobile.plugins.sms"
+    "com.jsmobile.plugins.sms",
+    "io.litehelpers.cordova.sqlite"
   ],
   "cordovaPlatforms": [
     "android"
