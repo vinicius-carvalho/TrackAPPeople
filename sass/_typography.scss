@@ -1,0 +1,24 @@
+@font-face {
+    font-family: "Proxima Nova";
+    src: url("/fontes/proximanova-regular/proximanova-regular-webfont.eot"); /* IE9 Compat Modes */
+    src: url("/fontes/proximanova-regular/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("/fontes/proximanova-regular/proximanova-regular-webfont.woff") format("woff"), /* Modern Browsers */
+        url("/fontes/proximanova-regular/proximanova-regular-webfont.ttf")  format("truetype"), /* Safari, Android, iOS */
+        url("/fontes/proximanova-regular/proximanova-regular-webfont.svg#ProximaNova") format("svg"); /* Legacy iOS */
+}
+
+// ###Semibold
+//
+// Usada em titulos.
+
+@font-face {
+    font-family: "Proxima Nova Semibold";
+    src: url("/fontes/proximanova-semibold/proximanova-semibold-webfont.eot"); /* IE9 Compat Modes */
+    src: url("/fontes/proximanova-semibold/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+        url("/fontes/proximanova-semibold/proximanova-semibold-webfont.woff") format("woff"), /* Modern Browsers */
+        url("/fontes/proximanova-semibold/proximanova-semibold-webfont.ttf")  format("truetype"), /* Safari, Android, iOS */
+        url("/fontes/proximanova-semibold/proximanova-semibold-webfont.svg#ProximaNovaSemibold") format("svg"); /* Legacy iOS */
+}
+
+$font-proxima-nova: "Proxima Nova", "Helvetica Neue", "Helvetica", Arial, Sans-Serif;
+$font-proxima-nova-semibold: "Proxima Nova Semibold", "Helvetica Neue Semibold", "Helvetica", Arial, Sans-Serif;

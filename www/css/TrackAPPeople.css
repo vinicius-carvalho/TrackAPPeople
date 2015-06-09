@@ -63,15 +63,62 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/fontes/proximanova-regular/proximanova-regular-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("/fontes/proximanova-regular/proximanova-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/fontes/proximanova-regular/proximanova-regular-webfont.woff") format("woff"), url("/fontes/proximanova-regular/proximanova-regular-webfont.ttf") format("truetype"), url("/fontes/proximanova-regular/proximanova-regular-webfont.svg#ProximaNova") format("svg");
+  /* Legacy iOS */
+}
+@font-face {
+  font-family: "Proxima Nova Semibold";
+  src: url("/fontes/proximanova-semibold/proximanova-semibold-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("/fontes/proximanova-semibold/proximanova-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("/fontes/proximanova-semibold/proximanova-semibold-webfont.woff") format("woff"), url("/fontes/proximanova-semibold/proximanova-semibold-webfont.ttf") format("truetype"), url("/fontes/proximanova-semibold/proximanova-semibold-webfont.svg#ProximaNovaSemibold") format("svg");
+  /* Legacy iOS */
+}
 /* line 1, ../../sass/_wellcome.scss */
 .wellcome {
-  background-image: url('../img/background/wellcome-bg.png?1429389690');
-  background-position: center;
+  background-image: url('../img/background/wellcome-bg.png?1433535125');
+  background-position: center top;
+  background-repeat: no-repeat;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  color: #fff;
   -moz-box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
   -webkit-box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.69);
-  padding: 24px;
+  padding: 24px 0 92px;
   text-align: center;
+}
+/* line 11, ../../sass/_wellcome.scss */
+.wellcome .h1 {
+  color: #fff;
+  margin-top: 25%;
+  margin-bottom: 31px;
+  font-size: 16px;
+}
+
+/* line 23, ../../sass/_wellcome.scss */
+.wellcome-logo {
+  width: 75.212%;
+  margin-bottom: 25px;
+}
+
+/* line 28, ../../sass/_wellcome.scss */
+.wellcome-description {
+  color: #DFDFDE;
+  font-size: 16px;
+  line-height: 120%;
+  width: 57%;
+  margin: 0 auto 116px;
+}
+
+/* line 37, ../../sass/_wellcome.scss */
+.wellcome-action-call {
+  margin-bottom: 24px;
 }
 
 /* line 1, ../../sass/_buttons.scss */
@@ -101,49 +148,50 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 8, ../../sass/_person.scss */
 .person-picture {
   width: 44%;
-  border-radius: 200px;
-  -webkit-border-radius: 250px;
-  -moz-border-radius: 250px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
-/* line 12, ../../sass/_person.scss */
+/* line 13, ../../sass/_person.scss */
 .person-name {
-  font-family: "proxima nova semibold";
-  font-size: 2em;
+  color: #666666;
+  font-size: 32px;
   margin: 32px 0 16px;
 }
 
-/* line 18, ../../sass/_person.scss */
+/* line 19, ../../sass/_person.scss */
 .person-phone {
-  font-size: 1.5em;
+  font-size: 24px;
   color: #78C0A8;
   display: inline-block;
   margin-bottom: 40px;
 }
 
-/* line 25, ../../sass/_person.scss */
+/* line 26, ../../sass/_person.scss */
 .person-click-to-update {
   font-size: 1.5em;
   margin-top: 24px;
 }
-/* line 29, ../../sass/_person.scss */
+/* line 30, ../../sass/_person.scss */
 .person-click-to-update + .btn {
   margin: 48px 0;
 }
 
-/* line 35, ../../sass/_person.scss */
+/* line 36, ../../sass/_person.scss */
 .person-localization-title {
-  font-family: "proxima nova semibold";
-  font-size: 2em;
+  color: #F07818;
+  font-family: "Proxima Nova Semibold", "Helvetica Neue Semibold", "Helvetica", Arial, Sans-Serif;
+  font-size: 32;
   margin-bottom: 16px;
 }
 
-/* line 41, ../../sass/_person.scss */
+/* line 43, ../../sass/_person.scss */
 .person-current-localization {
-  font-size: 1.5em;
+  color: #666666;
+  font-size: 24px;
+  line-height: 120%;
+  margin-bottom: 46px;
 }
 
 /* line 1, ../../sass/_taskbar.scss */
@@ -156,6 +204,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 13, ../../sass/TrackAPPeople.scss */
+html,
+body {
+  font-family: "Proxima Nova", "Helvetica Neue", "Helvetica", Arial, Sans-Serif !important;
+  overflow: auto !important;
+}
+
+/* line 19, ../../sass/TrackAPPeople.scss */
+.scroll-content {
+  position: relative !important;
+  overflow: auto !important;
+}
+
+/* line 24, ../../sass/TrackAPPeople.scss */
+.pane, .view {
+  overflow: auto !important;
+}
+
+/* line 28, ../../sass/TrackAPPeople.scss */
 .link {
   color: #78C0A8;
   text-decoration: none;

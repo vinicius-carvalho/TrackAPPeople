@@ -3,12 +3,27 @@
 @import "compass/css3";
 
 
+@import "typography";
 @import "variables";
 @import "wellcome";
 @import "buttons";
 @import "person";
 @import "taskbar";
 
+html,
+body {
+    font-family: $font-proxima-nova !important;
+    overflow: auto !important;
+}
+
+.scroll-content {
+  position: relative !important;
+  overflow: auto !important;
+}
+
+.pane, .view {
+    overflow: auto !important;
+}
 
 .link {
     color: $green;
