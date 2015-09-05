@@ -34,6 +34,9 @@
 <script src="../js/ng-cordova.min.js" type="text/javascript">
         </script> 
 
+        <script src="../js/smsplugin.js" type="text/javascript">
+        </script> 
+
 
         <script src="../js/jquery.js" type="text/javascript">
         </script> 
@@ -49,14 +52,15 @@
         </script>
 
 
-    <ion-pane ng-app="starter" ng-controller="main">
-       <ion-content>
+   
+       
 
         <header class="taskbar">
             <img src="../img/logo/white-header-logo.png">
         </header>
       
-        <main class="person">
+        <main class="person" ng-app="starter" ng-controller="main">
+
             <img src="../img/perfil/perfil.jpg" class="person-picture">
 
             <h1 class="person-name">Vinicius Carvalho</h1>
@@ -65,26 +69,31 @@
             <h2 class="person-localization-title">Ultima localização:</h2>
             <address class="person-current-localization">
 
-              <span ng-controller="MapController">{{ultimascoord}}</span>
+              <span ng-controller="MapController" class="person-click-to-update">{{ultimascoord}}</span>
             
             </address>
-             
+
+             <p class="person-click-to-update" ng-controller="main" >Ative o botão para recebers as coordenadas direto no aplicativo:</p> 
+
+             <p><button ng-click="receberSMSbtn()"  class="btn action">{{ativar}}</button>
+             <button ng-click="pararReceSMSbtn()"  class="btn action">{{desativar}}</button></p>
+
             
+            
+            <p class="person-click-to-update">Para atualizar e receber as coordenadas, aperte o botão abaixo:</p> 
 
+            <p><button ng-click="sendSMSbtn('996177262','receber')"  class="btn action">Receber Coordenadas</button></p>
 
-            <p class="person-click-to-update">Para atualizar e receber as coordenadas, aperte o botão abaixo</p> <p><img src="../img/button/button localizar.png" class="buttonloc " ng-click="sendSMSbtn('981275534','receber')"></p>
-
-       <!--  <button ng-click="insert('Cacapava')"  class="button">insert</button>
-         <button class="button" ng-click="select('Cacapava')">Select</button> -->
-          <button class="button" ng-click="deletebd()">Deletedb</button> 
-        <!--   <button ng-controller="MapController" class="button" ng-click="f()">action</button>
-          <button ng-controller="MapController" class="button" ng-click="f2()">action 2</button>
-             -->
+    
+          <button class="btn action" ng-click="deletebd()">Remover o último local</button> 
+      
             
             
  </p>
         </div>
-            <button ng-click="hideMap()" id="hideMap" class="btn action">Visualizar a localização de Vinicius no mapa</button>
+        <p class="person-click-to-update">Visualizar a localização de Vinicius no mapa.</p>
+     
+            <p><button ng-click="hideMap()" id="hideMap" class="btn action">Abrir o Google Maps</button></p>
 
             <hr>
 
@@ -97,38 +106,19 @@
 
           <update-coordinates ng-controller="MapController">
                 <p><h4>Digite a baixo os valores que você recebeu por sms:</h4></p>
-               <!-- <label class="item-input">
-               <span class="input-label"><h4>Coordenadas:</h4></span>
-                  <input type="text" ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="Entre com as coordenadas" >
-                </label>
-                <button class="button" ng-click="geocode()">Encontrar</button>
-              
-            </update-coordinates>
- -->
-
-
-  <update-coordinates class=" item-input-inset" ng-controller="MapController">
+         
+  <update-coordinates class=" item-input-inset" ng-model="inputCmp" ng-controller="MapController"> 
   
      
     <label class="item-input-wrapper">
 
-       <input type="text" ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="Coordenadas" >
+       <input type="text" ng-model="inputCmp" ng-keypress="($event.which === 13)?geocode():0" id="search" type="search" placeholder="Coordenadas" >
     </label>
     <button class="button button-small" ng-click="geocode()">Encontrar</button> 
      </update-coordinates>
 
-
-
   
         </main>
-
-
-
-
- 
      
-     
-    </ion-content>
 
-    </ion-pane>
 </html>

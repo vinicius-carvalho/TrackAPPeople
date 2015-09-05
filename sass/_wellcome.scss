@@ -1,19 +1,9 @@
 .wellcome {
     background-image: image-url("background/wellcome-bg.png");
-    background-position: center top;
-    background-repeat: no-repeat;
-    @include background-size(cover);
-    color: #fff;
+    background-position: center;
     @include box-shadow(0 -5px 15px rgba(#000,.69));
-    padding: 24px 0 92px;
+    padding: 24px;
     text-align: center;
-
-    .h1 {
-        color: #fff;
-        margin-top: 25%;
-        margin-bottom: 31px;
-        font-size: 16px;
-    }
 }
 
 .wellcome-info {
@@ -21,19 +11,13 @@
 }
 
 .wellcome-logo {
-    width: 75.212%;
-    margin-bottom: 25px;
+
 }
 
 .wellcome-description {
-    color: #DFDFDE;
-    font-size: 16px;
-    line-height: 120%;
-    width: 57%;
-    margin: 0 auto 116px;
 
 }
 
 .wellcome-action-call {
-    margin-bottom: 24px;
+
 }

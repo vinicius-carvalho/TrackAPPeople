@@ -7,17 +7,16 @@
 
 .person-picture {
     width: 44%;
-    @include border-radius(50%);
 }
 
 .person-name {
-    color: #666666;
-    font-size: 32px;
+    font-family: "proxima nova semibold";
+    font-size: 2em;
     margin: $size-4 0 $size-2;
 }
 
 .person-phone {
-    font-size: 24px;
+    font-size: 1.5em;
     color: $green;
     display: inline-block;
     margin-bottom: $size-5;
@@ -34,15 +33,11 @@
 }
 
 .person-localization-title {
-    color: #F07818;
-    font-family: $font-proxima-nova-semibold;
-    font-size: 32;
+    font-family: "proxima nova semibold";
+    font-size: 2em;
     margin-bottom: $size-2;
 }
 
 .person-current-localization {
-    color: #666666;
-    font-size: 24px;
-    line-height: 120%;
-    margin-bottom: 46px;
+    font-size: 1.5em;
 }

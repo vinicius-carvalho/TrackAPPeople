@@ -96,15 +96,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 11, ../../sass/_wellcome.scss */
 .wellcome .h1 {
   color: #fff;
-  margin-top: 25%;
+  margin-top: 15%;
   margin-bottom: 31px;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* line 23, ../../sass/_wellcome.scss */
 .wellcome-logo {
   width: 75.212%;
-  margin-bottom: 25px;
+  margin-top: 10%;
+  margin-bottom: 20px;
 }
 
 /* line 28, ../../sass/_wellcome.scss */
@@ -113,7 +114,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-size: 16px;
   line-height: 120%;
   width: 57%;
-  margin: 0 auto 116px;
+  margin: 0 auto 100px;
 }
 
 /* line 37, ../../sass/_wellcome.scss */
@@ -171,6 +172,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 26, ../../sass/_person.scss */
 .person-click-to-update {
   font-size: 1.5em;
+  line-height: 120%;
+  font-family: "Proxima Nova Semibold", "Helvetica Neue Semibold", "Helvetica", Arial, Sans-Serif;
   margin-top: 24px;
 }
 /* line 30, ../../sass/_person.scss */
@@ -206,6 +209,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /* line 13, ../../sass/TrackAPPeople.scss */
 html,
 body {
+
   font-family: "Proxima Nova", "Helvetica Neue", "Helvetica", Arial, Sans-Serif !important;
   overflow: auto !important;
 }

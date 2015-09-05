@@ -18,3 +18,9 @@
     border:1px solid #000000;
     width:10%;
 }
+
+.tamMap{
+	width:0px;
+	height: 0px;
+	display:block;
+}

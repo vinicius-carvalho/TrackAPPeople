@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var pr = angular.module('starter', ['ionic', 'ngCordova'])
+var pr = angular.module('starter', ['ionic', 'ngCordova',])
 
   ultimascoord="";
 
@@ -29,7 +29,7 @@ pr.run(function($ionicPlatform, $cordovaSQLite) {
 
 
 
-pr.controller('MapController', function($scope, $ionicLoading, $cordovaSQLite) {
+pr.controller('MapController', function($scope, $ionicLoading, $cordovaSQLite,$rootScope) {
 
 $scope.ultimascoord=ultimascoord;
 $scope.teste="d";
@@ -149,18 +149,6 @@ var input = document.getElementById('search').value;
 
 
             //pergunta se quer colocar nas ultimas coordenadas
-           if (confirm('Você quer salvar a busca como últimas coordenadas?')) {
-    alert("Salvou!");
-
-    //addItem(); adicionar na lista de coordenadas
-
-  
- 
-
-
-} else {
-    // Do nothing!
-}
 
      
 console.log($scope.addressSearch);
@@ -177,7 +165,7 @@ console.log($scope.addressSearch);
 
         var query = "INSERT INTO endereco (id,cidade) VALUES (?,?)";
         $cordovaSQLite.execute(db, query, [1,cidade]).then(function(res) {
-            alert("INSERT ID -> " + res.insertId);
+            alert("Salvado como última localização");
         }, function (err) {
             alert(err);
         });
@@ -185,31 +173,8 @@ console.log($scope.addressSearch);
 
 $scope.insert($scope.addressSearch);
 
-    /* $scope.select = function(id) {
-        var query = "SELECT cidade FROM endereco WHERE id = ?";
-
-        $cordovaSQLite.execute(db, query, [id]).then(function(res) {
-            if(res.rows.length > 0) {
-                
-                ultimascoord=res.rows.item(0).cidade;
-                
-            } else {
-                alert("No results found");
-            }
-        }, function (err) {
-            alert(err);
-        });
-
-    }
 
      
-
-$scope.select(1);*/
-
-    
-
-
- 
         });
 
 }
@@ -263,7 +228,7 @@ $scope.checked=false;
                 ultimascoord=res.rows.item(0).cidade;
                 
             } else {
-                alert("No results found");
+                
             }
         }, function (err) {
             alert(err);
@@ -277,19 +242,97 @@ $scope.ultimascoord=ultimascoord;
            
         });
     }, 7000);
-
+$rootScope.inputCmp;
 
 });
 
 
-pr.controller('main', function($scope, $cordovaSQLite,$cordovaSms) {
+pr.controller('main', function($scope, $cordovaSQLite, $cordovaSms, $rootScope) {
 
 
 
+$scope.inputCmp="";
+$scope.ativar="Ativar";
+$scope.desativar="Desativado";
+$scope.verAtivar=true;
+$scope.verDesativar=true;
 var nextItem = 4;
 $scope.coordenadaslist = {1:"1234"};
 $scope.coord="";
 
+
+$scope.receberSMSbtn=function(){
+
+  $scope.verAtivar=true;
+  $scope.desativar="Desativar";
+
+var enviado = function (result){
+
+   $scope.inputCmp=result.split('>');
+   alert("Enviada por: "+ $scope.inputCmp[0]+" Mensagem inserida no campo de busca do mapa!");
+
+   if($scope.inputCmp[0] == 012996177262){
+    $scope.inputCmp=$scope.inputCmp[1];
+   }else{
+    // nada
+   }
+   
+   
+   
+
+};
+var erro = function (error){
+  alert(error);
+};
+
+
+  if($scope.verAtivar==true){
+    $scope.ativar="Ativado"
+
+
+    $scope.smsplugin = cordova.require("info.asankan.phonegap.smsplugin.smsplugin");
+    $scope.smsplugin.startReception(enviado,erro);
+
+  }else{
+    $scope.desativar="Desativar"
+   
+
+    }
+
+
+
+}
+
+$scope.pararReceSMSbtn=function(){
+
+  $scope.verDesativar=true;
+  $scope.ativar="Ativar";
+
+var parado = function(){
+  alert("Parado");
+};
+
+var paradoErro = function(e){
+  alert("Deu um erro: "+e);
+};
+
+  if($scope.verDesativar==true){
+    $scope.desativar="Desativado"
+
+
+    $scope.smsplugin = cordova.require("info.asankan.phonegap.smsplugin.smsplugin");
+
+    $scope.smsplugin.stopReception(parado,paradoErro);
+
+  }else{
+    $scope.ativar="Ativar"
+    }
+
+
+
+}
+
+  
 $scope.sendSMSbtn=function(num,text){
  $cordovaSms
       .send(num, text)
@@ -302,29 +345,6 @@ $scope.sendSMSbtn=function(num,text){
 
 
 
-//   $scope.insert = function(cidade) {
-//         var query = "INSERT INTO endereco (cidade) VALUES (?)";
-//         $cordovaSQLite.execute(db, query, [cidade]).then(function(res) {
-//             alert("INSERT ID -> " + res.insertId);
-//         }, function (err) {
-//             alert(err);
-//         });
-//     }
-
-
-//        $scope.select = function(cidade) {
-//         var query = "SELECT cidade FROM endereco WHERE cidade = ?";
-//         $cordovaSQLite.execute(db, query, [cidade]).then(function(res) {
-//             if(res.rows.length > 0) {
-//                 alert("SELECTED -> " + res.rows.item(0).cidade);
-//             } else {
-//                 alert("No results found");
-//             }
-//         }, function (err) {
-//             alert(err);
-//         });
-//     }
-
  $scope.deletebd=function(){
  $cordovaSQLite.deleteDB("my.db");
 
@@ -332,23 +352,20 @@ $scope.sendSMSbtn=function(num,text){
 
 $scope.mostrarMsgButton=false;
     $scope.esconder="Esconder Mapa"
-    //$("#map_canvas").hide();
+    
     
     $scope.hideMap =function(){
-        
-        $scope.mostrarMsgButton =! $scope.mostrarMsgButton;
-      
-         if ($scope.mostrarMsgButton){
-        $scope.esconder="Mostrar Mapa";
-        $("#map").toggle();
-    }
-    
-    if (!$scope.mostrarMsgButton){
-        $scope.esconder="Esconder Mapa"; 
-        $("#map").toggle();
-    }
+
+  
+        $("#map").slideToggle("slow");
+
     
     };
+
+window.setTimeout(function() {
+ $("#map").hide();
+}, 1100);
+    
 
     
 });
